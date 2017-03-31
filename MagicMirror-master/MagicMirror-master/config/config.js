@@ -41,6 +41,13 @@ var config = {
 			module: 'compliments',
 			position: 'lower_third'
 		},
+				  {
+    		module: 'ReseModul',
+    		position: 'top_right',
+    		config: {
+      				updateInterval: 60000 // update interval in milliseconds
+    	}
+  		},
 		{
 			module: 'currentweather',
 			position: 'top_right',
