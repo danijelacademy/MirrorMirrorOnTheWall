@@ -18,12 +18,12 @@ Module.register("ReseModul", {
 
   getDom: function() {
     var wrapper = document.createElement("table");
+    wrapper.setAttribute("id", "allt");
     wrapper.className = 'medium bright';
     wrapper.className = 'ticker';
 
     var data = this.result;
-    var symbolElement =  document.createElement("div");
-    var symbol = "Tid till avgång:";
+    var headtr =  document.createElement("tr");
     var from = data.TripList.Trip[0].LegList.Leg.Origin.name;
     var to = data.TripList.Trip[0].LegList.Leg.Destination.name;
     var tider = [];
@@ -37,29 +37,49 @@ Module.register("ReseModul", {
       
     }
     if (from) {
-      var times = document.createElement("div");
-      times.innerHTML = from + " - " + to;
+      var times = document.createElement("tr");
+      var fromvar = document.createElement("th");
+      var tovar = document.createElement("th");
+      var avgang = document.createElement("td");
+      avgang.innerHTML="Avgång";
+      var framme = document.createElement("td");
+      framme.innerHTML="Framme";
+      times.appendChild(fromvar);
+      times.appendChild(tovar);
+      times.setAttribute("id", "destheader");
+      times.style.opacity = 0.7;
+      fromvar.innerHTML = from + " ";
+      tovar.innerHTML = " - " + to;
       wrapper.appendChild(times);
 
-            symbolElement.innerHTML = symbol;
-      wrapper.appendChild(symbolElement);
-      symbolElement.setAttribute("class", "rubrik");
+      headtr.appendChild(avgang);
+      headtr.appendChild(framme);
+      headtr.setAttribute("id", "tablehead");
+      wrapper.appendChild(headtr);
 
-      var tid = document.createElement("span");
+      var tid = document.createElement("tr");
       tid.setAttribute("class", "tider");
       var a = new Date();
-      var tidarray = [];
+      var tidarraytd = [];
+      var tidarraytdd = [];
+      var tidarraytr = [];
       var timeNow = a.getHours()*60+a.getMinutes(); 
       for(var j =0; j<tider.length;j++){
-        tidarray[j] = document.createElement("span");
-        tidarray[j].setAttribute("class", "lista");
-        tidarray[j].innerHTML = ((parseFloat((tider[j].substring(0,2)*60))+parseFloat(tider[j].substring(3)))-timeNow) +" min " + ankomst[j] +" På jobbet";
-        wrapper.appendChild(tidarray[j]);
+        tidarraytr[j] = document.createElement("tr");
+        tidarraytd[j] = document.createElement("td");
+        tidarraytd[j].innerHTML = ((parseFloat((tider[j].substring(0,2)*60))+parseFloat(tider[j].substring(3)))-timeNow) +" min";
+        tidarraytd[j].setAttribute("class", "avgtider");
+        tidarraytdd[j] = document.createElement("td");
+        tidarraytdd[j].innerHTML = ankomst[j];
+        tidarraytdd[j].setAttribute("class", "framtider");
+        tidarraytr[j].appendChild(tidarraytd[j]);
+        tidarraytr[j].appendChild(tidarraytdd[j]);
+        wrapper.appendChild(tidarraytr[j]);
       }
-        tidarray[1].style.opacity = 0.4;  
-        tidarray[2].style.opacity = 0.3;
-        tidarray[3].style.opacity = 0.2;
-        tidarray[4].style.opacity = 0.1;
+        tidarraytr[1].style.opacity = 0.5;  
+        tidarraytr[2].style.opacity = 0.4;
+        tidarraytr[3].style.opacity = 0.3;
+        tidarraytr[4].style.opacity = 0.2;
     }
     return wrapper;
   },
