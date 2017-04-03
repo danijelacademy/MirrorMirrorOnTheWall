@@ -1,34 +1,50 @@
 *{
 	color : white;
 	font-weight: normal;
-	font-size: 17px;
-}
-#destheader{
-    border-bottom: 1px solid #666
-}
-#destheader *{
-	padding:0; 
-	margin:0;
-    border-collapse: collapse;
-}	
-#tablehead * {
-	padding:0; 
-	margin:0;
-    border-collapse: collapse;
-    line-height: 25px;
+	font-size: 25px;
 }
 /*table, th, td {
    border: 1px solid red;
 }*/
+#destheader *{
+	padding:0; 
+	margin:3px;
+    border-collapse: collapse;
+    line-height: 25px;
+    font-size: 30px;
+}	
+#tablehead > td{
+		padding-top: 10px;
+	padding-bottom: 10px;
+}
+#left{
+	text-align: left;
+}
+#right{
+	text-align: right;
+}
+#tablehead * {
+	padding:0; 
+	margin: 3px;
+    border-collapse: collapse;
+    line-height: 25px;
+}
 .avgtider {
   text-align: right;
-  padding:0; margin:0;
+  padding:0; margin:3px;
   border-collapse: collapse;
   line-height: 25px;
+  text-align: left;
 }
 .framtider {
   text-align: right;
-  padding:0; margin:0;
+  padding:0; 
+  margin:3px;
   border-collapse: collapse;
   line-height: 25px;
+}
+.symbol{
+	width: 25;
+	height:25;
+	align: middle;
 }
