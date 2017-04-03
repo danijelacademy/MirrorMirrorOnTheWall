@@ -1,0 +1,12 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\config",
+    "\\modules",
+    "\\modules\\default",
+    "\\modules\\default\\newsfeed",
+    "\\modules\\default\\weatherforecast"
+  ],
+  "SelectedNode": "\\config\\config.js",
+  "PreviewInSolutionExplorer": false
+}
