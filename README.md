@@ -1,2 +1,0 @@
-# MirrorMirrorOnTheWall
-Utbyggnad av spegel.
